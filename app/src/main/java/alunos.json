@@ -1,0 +1,16 @@
+{
+  "list": [
+    {
+      "aluno" : [
+        {
+          "nome" : "Daniel",
+          "nota" : "4.5"
+        },
+        {
+          "nome" : "Daniel",
+          "nota" : "10.0"
+        }
+      ]
+    }
+  ]
+}

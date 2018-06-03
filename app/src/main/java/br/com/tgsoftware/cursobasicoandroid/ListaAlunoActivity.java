@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ContextMenu;
@@ -13,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -21,8 +19,11 @@ import android.widget.Toast;
 import java.util.List;
 
 import br.com.tgsoftware.cursobasicoandroid.adapter.AlunosAdapter;
+import br.com.tgsoftware.cursobasicoandroid.connection.WebClient;
+import br.com.tgsoftware.cursobasicoandroid.converter.AlunoConverter;
 import br.com.tgsoftware.cursobasicoandroid.dao.AlunoDao;
 import br.com.tgsoftware.cursobasicoandroid.model.Aluno;
+import br.com.tgsoftware.cursobasicoandroid.task.EnviaAlunoTask;
 
 public class ListaAlunoActivity extends AppCompatActivity {
 
@@ -75,7 +76,7 @@ public class ListaAlunoActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_enviar_notas:
-                Toast.makeText(this, "Enviando notas...", Toast.LENGTH_LONG).show();
+                new EnviaAlunoTask(this).execute();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -137,13 +138,18 @@ public class ListaAlunoActivity extends AppCompatActivity {
     }
 
     private void carregarListaAluno() {
-        AlunoDao alunoDao = new AlunoDao(this);
-        List<Aluno> alunos = alunoDao.buscarAlunos();
-        alunoDao.close();
+        List<Aluno> alunos = getListaAlunos();
 
         //ArrayAdapter<Aluno> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alunos);
 
         AlunosAdapter adapter = new AlunosAdapter(this, alunos);
         listaAlunos.setAdapter(adapter);
+    }
+
+    private List<Aluno> getListaAlunos() {
+        AlunoDao alunoDao = new AlunoDao(this);
+        List<Aluno> alunos = alunoDao.buscarAlunos();
+        alunoDao.close();
+        return alunos;
     }
 }
