@@ -54,6 +54,8 @@ public class AlunosAdapter extends BaseAdapter {
         TextView campoNome = view.findViewById(R.id.item_nome);
         TextView campoTelefone = view.findViewById(R.id.item_telefone);
         ImageView campoFoto = view.findViewById(R.id.item_foto);
+        TextView campoEndereco = view.findViewById(R.id.item_endereco);
+        TextView campoSite = view.findViewById(R.id.item_site);
         String caminhoFoto = aluno.getCaminhoFoto();
 
         campoNome.setText(aluno.getNome());
@@ -63,6 +65,12 @@ public class AlunosAdapter extends BaseAdapter {
             bitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, true);
             campoFoto.setImageBitmap(bitmap);
             campoFoto.setScaleType(ImageView.ScaleType.FIT_XY);
+        }
+        if (campoEndereco != null) {
+            campoEndereco.setText(aluno.getEndereco());
+        }
+        if (campoSite != null) {
+            campoSite.setText(aluno.getSite());
         }
 
         return view;
