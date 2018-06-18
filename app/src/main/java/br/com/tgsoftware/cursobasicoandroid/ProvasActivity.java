@@ -15,6 +15,13 @@ public class ProvasActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_principal, new ListaProvasFragment());
+        if (estaNoModoPaisagem()) {
+            transaction.replace(R.id.frame_secundario, new DetalhesProvaFragment());
+        }
         transaction.commit();
+    }
+
+    private boolean estaNoModoPaisagem() {
+        return getResources().getBoolean(R.bool.modoPaisagem);
     }
 }
