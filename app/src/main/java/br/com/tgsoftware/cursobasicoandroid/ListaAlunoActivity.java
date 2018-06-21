@@ -83,6 +83,11 @@ public class ListaAlunoActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ProvasActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.menu_mapa:
+                Intent intentMapa = new Intent(this, MapaActivity.class);
+                startActivity(intentMapa);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

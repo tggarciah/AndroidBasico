@@ -1,11 +1,12 @@
 package br.com.tgsoftware.cursobasicoandroid;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import br.com.tgsoftware.cursobasicoandroid.fragments.DetalhesProvaFragment;
+import br.com.tgsoftware.cursobasicoandroid.fragments.ListaProvasFragment;
 import br.com.tgsoftware.cursobasicoandroid.model.Prova;
 
 public class ProvasActivity extends AppCompatActivity {

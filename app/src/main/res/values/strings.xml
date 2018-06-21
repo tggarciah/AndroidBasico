@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Agenda-Curso Básico</string>
     <string name="formulario_aluno">Formulário Aluno</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

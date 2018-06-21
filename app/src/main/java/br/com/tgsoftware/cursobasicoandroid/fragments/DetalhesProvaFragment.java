@@ -1,4 +1,4 @@
-package br.com.tgsoftware.cursobasicoandroid;
+package br.com.tgsoftware.cursobasicoandroid.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,8 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.io.Serializable;
-
+import br.com.tgsoftware.cursobasicoandroid.R;
 import br.com.tgsoftware.cursobasicoandroid.model.Prova;
 
 public class DetalhesProvaFragment extends Fragment {
